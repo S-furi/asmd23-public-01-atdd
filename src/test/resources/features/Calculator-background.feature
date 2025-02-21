@@ -29,3 +29,7 @@ Feature:  Computing operations with a Calculator
   Scenario: Multiply two negative numbers
     When I multiply -1 and -2
     Then the multiplication should be 2
+
+  Scenario: Division by Zero
+    When I divide 10 and 0
+    Then the division should not be permitted

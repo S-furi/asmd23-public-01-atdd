@@ -54,4 +54,13 @@ public class CalculatorSteps {
             throw new IllegalStateException();
         }
     }
+
+    @Then("the division should not be permitted")
+    public void theDivisionShouldNotBePermitted() {
+        try {
+            this.calculator.div();
+            throw new IllegalStateException("An ArithmeticException should have been thrown");
+        } catch (final ArithmeticException e) {
+        }
+    }
 }
