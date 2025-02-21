@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.*;
+import java.util.function.BiFunction;
 
 public class Calculator {
     private List<Integer> numbers = new LinkedList<>();
@@ -13,10 +14,18 @@ public class Calculator {
     }
 
     public void add(){
+        this.computeOp((a, b) -> a + b);
+    }
+    
+    private void checkNumbers() {
         if (numbers.size() != 2){
             throw new IllegalStateException();
         }
-        numbers.set(0, numbers.get(0) + numbers.get(1));
+    }
+
+    private void computeOp(final BiFunction<Integer, Integer, Integer> op) {
+        checkNumbers();
+        numbers.set(0, op.apply(numbers.get(0), numbers.get(1)));
         numbers.remove(1);
     }
 
