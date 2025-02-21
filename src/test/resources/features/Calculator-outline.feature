@@ -25,3 +25,14 @@ Feature:  Computing operations with a Calculator
       | -1   | -2   | 2   |
       | 4    | 0    | 0   |
       | -4   | 0    | 0   |
+
+  Scenario Outline: Divide two numbers
+    When I divide <arg0> and <arg1>
+    Then the division should be <res>
+    Examples:
+      | arg0 | arg1 | res |
+      | 4    | 2    | 2   |
+      | -4   | 2    | -2  |
+      | -4   | -2   | 2   |
+      | 3    | 2    | 1   |
+      | 0    | 2    | 0   |

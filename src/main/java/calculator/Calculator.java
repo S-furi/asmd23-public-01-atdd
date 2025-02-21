@@ -21,6 +21,13 @@ public class Calculator {
         this.computeOp((a, b) -> a * b);
     }
 
+    public void div() {
+        if (numbers.get(1) == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        this.computeOp((a, b) -> a / b);
+    }
+
     private void checkNumbers() {
         if (numbers.size() != 2){
             throw new IllegalStateException();
