@@ -16,7 +16,11 @@ public class Calculator {
     public void add(){
         this.computeOp((a, b) -> a + b);
     }
-    
+
+    public void mul() {
+        this.computeOp((a, b) -> a * b);
+    }
+
     private void checkNumbers() {
         if (numbers.size() != 2){
             throw new IllegalStateException();

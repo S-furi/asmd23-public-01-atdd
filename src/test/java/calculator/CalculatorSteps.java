@@ -24,4 +24,18 @@ public class CalculatorSteps {
             throw new IllegalStateException();
         }
     }
+
+    @When("I multiply {int} and {int}")
+    public void iMultiplyAnd(int arg0, int arg1) {
+        this.calculator.enter(arg0);
+        this.calculator.enter(arg1);
+    }
+
+    @Then("the multiplication should be {int}")
+    public void theMultiplicationShouldBe(int arg0) {
+        this.calculator.mul();
+        if (arg0 != this.calculator.getResult()) {
+            throw new IllegalStateException();
+        }
+    }
 }
